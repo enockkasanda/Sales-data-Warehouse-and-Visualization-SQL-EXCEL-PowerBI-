@@ -1,260 +1,62 @@
-# Sales-data-Warehouse-and-Visualization-SQL-EXCEL-PowerBI-
-# 📊 Sales Data Warehouse & Analytics System
+# Sales Data Warehouse and Analytics
 
-A complete **Sales Data Warehouse and Business Intelligence project** built to transform raw retail sales data into structured, reliable, and actionable business insights.
+A retail sales data warehouse and analytics project built using **Microsoft SQL Server, SQL, Excel, and Power BI**.
 
-The project demonstrates practical skills in **SQL Server, Data Warehousing, Data Cleaning, ETL, Data Analysis, Excel, and Power BI**.
-
----
-
-## 🎯 Project Overview
-
-The objective of this project was to build an analytical solution that takes raw retail sales data and transforms it into meaningful business intelligence.
-
-The project follows a simplified data analytics pipeline:
-
-**Raw Data → Data Cleaning → SQL Data Warehouse → Data Analysis → Power BI Dashboard → Business Insights**
-
-The final solution allows users to analyze sales performance across products, customers, locations, and time.
+The project takes raw retail sales data and turns it into a structured database that can be used for analysis and reporting. The project covers data preparation, relational database design, dimensional modelling, SQL analysis, and Power BI visualisation.
 
 ---
 
-## 🛠️ Technologies Used
+## Project Overview
 
-| Technology               | Purpose                                 |
-| ------------------------ | --------------------------------------- |
-| **Microsoft SQL Server** | Database & Data Warehouse               |
-| **SQL**                  | Data transformation and analysis        |
-| **Excel**                | Initial data inspection and validation  |
-| **Power BI**             | Data visualization & dashboard          |
-| **GitHub**               | Version control & project documentation |
+The main goal of this project was to build a small sales data warehouse and use it to analyse retail sales performance.
 
----
+The project follows this process:
 
-## 🏗️ Data Warehouse Architecture
+**Raw Data → Excel → SQL Server → Data Warehouse → SQL Analysis → Power BI Dashboard**
 
-The project uses a structured analytical database designed around a **Star Schema**.
-
-### Fact Table
-
-**FactSales**
-
-Contains measurable business transactions such as:
-
-* Sales quantity
-* Unit price
-* Total sales
-* Transaction date
-* Product
-* Customer
-* Store/location
-
-### Dimension Tables
-
-**DimProduct**
-
-* Product ID
-* Product Name
-* Category
-* Price
-
-**DimCustomer**
-
-* Customer ID
-* Customer Name
-* Customer demographics
-
-**DimDate**
-
-* Date
-* Day
-* Month
-* Quarter
-* Year
-
-**DimLocation**
-
-* Location ID
-* Store/Region
-* City/Area
+The analysis focuses on sales, customers, product categories, transaction activity, and sales trends over time.
 
 ---
 
-## 🔄 ETL Process
+## Dataset
 
-### 1. Extract
+The project uses a retail sales dataset containing **1,000+ sales transactions**.
 
-Raw retail sales data was collected and loaded into the SQL Server environment.
+The main fields in the original dataset are:
 
-### 2. Transform
+| Column | Description |
+|---|---|
+| Transaction ID | Unique identifier for each transaction |
+| Date | Date on which the transaction took place |
+| Customer ID | Identifier for the customer |
+| Gender | Customer gender |
+| Age | Customer age |
+| Product Category | Category of the product purchased |
+| Quantity | Number of units purchased |
+| Price per Unit | Price of one unit |
+| Total Amount | Total value of the transaction |
 
-SQL was used to:
-
-* Identify missing values
-* Remove duplicate records
-* Standardize data types
-* Clean inconsistent values
-* Validate relationships
-* Create calculated fields
-* Prepare data for analytical queries
-
-### 3. Load
-
-The transformed data was loaded into the warehouse using a structured dimensional model.
+The dataset was first inspected and validated using Excel before being loaded into SQL Server.
 
 ---
 
-## 📈 Analysis Performed
+## Technologies Used
 
-The project explores several business questions, including:
-
-### Sales Performance
-
-* What is the total revenue?
-* What are the highest-performing products?
-* Which categories generate the most revenue?
-* How does revenue change over time?
-
-### Customer Analysis
-
-* Which customers generate the most revenue?
-* What purchasing patterns can be identified?
-* Which customer segments contribute most to sales?
-
-### Product Analysis
-
-* Which products sell the most units?
-* Which products generate the highest revenue?
-* Which categories are underperforming?
-
-### Geographic Analysis
-
-* Which locations generate the highest sales?
-* How does sales performance differ between regions?
+| Technology | Purpose |
+|---|---|
+| **Microsoft SQL Server** | Database and data warehouse |
+| **SQL** | Data transformation, joins, validation, and analysis |
+| **Excel** | Initial data inspection and validation |
+| **Power BI** | Dashboard and data visualisation |
+| **GitHub** | Project documentation and version control |
 
 ---
 
-## 📊 Power BI Dashboard
+## Database Structure
 
-The Power BI dashboard provides an interactive overview of the sales data.
-
-### Key KPIs
-
-* 💰 Total Revenue
-* 🛒 Total Orders
-* 📦 Units Sold
-* 👥 Customers
-* 📈 Average Order Value
-
-### Dashboard Features
-
-* Sales trend analysis
-* Product performance
-* Category performance
-* Customer analysis
-* Geographic analysis
-* Interactive filtering
-* KPI cards
-* Drill-down analysis
-
----
-
-## 🧠 Key Business Insights
-
-The analysis was used to identify:
-
-* Top-performing products and categories
-* Revenue trends over time
-* High-value customers
-* Strong and weak-performing locations
-* Sales patterns that could support business decision-making
-
-The project demonstrates how raw transactional data can be transformed into **decision-ready business intelligence**.
-
----
-
-## 📂 Project Structure
+The project first uses a relational database containing three source tables:
 
 ```text
-Sales-Data-Warehouse/
-│
-├── README.md
-│
-├── data/
-│   └── retail_sales.csv
-│
-├── sql/
-│   ├── database_creation.sql
-│   ├── table_creation.sql
-│   ├── data_cleaning.sql
-│   ├── etl.sql
-│   └── analysis_queries.sql
-│
-├── powerbi/
-│   └── sales_dashboard.pbix
-│
-├── excel/
-│   └── data_validation.xlsx
-│
-└── screenshots/
-    └── dashboard.png
-```
-
----
-
-## 🔍 Example SQL Analysis
-
-```sql
-SELECT
-    ProductCategory,
-    SUM(TotalSales) AS TotalRevenue
-FROM FactSales
-GROUP BY ProductCategory
-ORDER BY TotalRevenue DESC;
-```
-
-This query identifies the highest-revenue product categories.
-
----
-
-## 📌 Project Outcomes
-
-Through this project, I demonstrated practical experience with:
-
-* SQL querying
-* Relational databases
-* Data warehousing
-* Star schema design
-* ETL concepts
-* Data cleaning
-* Data validation
-* Business analysis
-* KPI development
-* Power BI visualization
-* Translating data into business insights
-
----
-
-## 🚀 Future Improvements
-
-Potential improvements include:
-
-* Implementing automated ETL pipelines
-* Adding incremental data loading
-* Creating more advanced customer segmentation
-* Adding forecasting models
-* Integrating Python for statistical analysis
-* Implementing scheduled Power BI refreshes
-* Expanding the warehouse with additional business dimensions
-
----
-
-## 👨‍💻 About the Project
-
-This project was developed as part of my **Data Analytics portfolio** to demonstrate the practical application of SQL, data warehousing, business intelligence, and data visualization.
-
-**Focus:** Data Analytics • SQL • Data Warehousing • Business Intelligence • Power BI
-
----
-
-⭐ If you found this project useful, feel free to explore the repository and review the SQL scripts, data model, and dashboard.
+Customers
+Products
+Transactions
